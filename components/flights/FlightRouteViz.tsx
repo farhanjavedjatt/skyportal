@@ -20,15 +20,15 @@ export function FlightRouteViz({
   const isActive = status === "active";
   const clampedProgress = Math.max(0, Math.min(1, progress));
 
-  const dotStartX = 60;
-  const dotEndX = 540;
-  const lineY = 45;
+  const dotStartX = 50;
+  const dotEndX = 350;
+  const lineY = 40;
   const planeX = dotStartX + (dotEndX - dotStartX) * clampedProgress;
 
   return (
     <div className="w-full">
       <svg
-        viewBox="0 0 600 120"
+        viewBox="0 0 400 100"
         className="w-full h-auto"
         preserveAspectRatio="xMidYMid meet"
       >
@@ -82,17 +82,17 @@ export function FlightRouteViz({
           </g>
         )}
 
-        <text x={dotStartX} y={lineY + 22} textAnchor="middle" className="fill-text-primary text-[14px] font-bold" fontFamily="monospace">
+        <text x={dotStartX} y={lineY + 22} textAnchor="middle" className="fill-text-primary font-bold" fontSize="18" fontFamily="monospace">
           {departureCode}
         </text>
-        <text x={dotStartX} y={lineY + 38} textAnchor="middle" className="fill-text-secondary text-[11px]">
+        <text x={dotStartX} y={lineY + 38} textAnchor="middle" className="fill-text-secondary" fontSize="13">
           {departureName}
         </text>
 
-        <text x={dotEndX} y={lineY + 22} textAnchor="middle" className="fill-text-primary text-[14px] font-bold" fontFamily="monospace">
+        <text x={dotEndX} y={lineY + 22} textAnchor="middle" className="fill-text-primary font-bold" fontSize="18" fontFamily="monospace">
           {arrivalCode}
         </text>
-        <text x={dotEndX} y={lineY + 38} textAnchor="middle" className="fill-text-secondary text-[11px]">
+        <text x={dotEndX} y={lineY + 38} textAnchor="middle" className="fill-text-secondary" fontSize="13">
           {arrivalName}
         </text>
       </svg>

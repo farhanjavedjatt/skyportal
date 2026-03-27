@@ -122,7 +122,7 @@ export function SearchBar({ className }: { className?: string }) {
           onFocus={() => results.length > 0 && setIsOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder="Search airports, airlines, flights..."
-          className="w-full h-10 pl-9 pr-4 rounded-xl bg-bg-tertiary text-sm text-text-primary placeholder:text-text-tertiary border border-border-subtle focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/50 outline-none transition-all"
+          className="w-full h-11 pl-9 pr-4 rounded-xl bg-bg-tertiary text-sm text-text-primary placeholder:text-text-tertiary border border-border-subtle focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/50 outline-none transition-all"
           aria-label="Search"
           role="combobox"
           aria-expanded={isOpen}

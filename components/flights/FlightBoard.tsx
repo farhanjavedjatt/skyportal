@@ -19,24 +19,24 @@ interface FlightBoardProps {
 const POLL_INTERVAL = 60_000;
 
 const departureHeaders = [
-  { key: "time", label: "Time" },
-  { key: "flight", label: "Flight" },
-  { key: "airline", label: "Airline" },
-  { key: "destination", label: "Destination" },
-  { key: "gate", label: "Gate" },
-  { key: "terminal", label: "Terminal" },
-  { key: "status", label: "Status" },
+  { key: "time", label: "Time", className: "" },
+  { key: "flight", label: "Flight", className: "" },
+  { key: "airline", label: "Airline", className: "hidden sm:table-cell" },
+  { key: "destination", label: "Destination", className: "" },
+  { key: "gate", label: "Gate", className: "hidden md:table-cell" },
+  { key: "terminal", label: "Terminal", className: "hidden md:table-cell" },
+  { key: "status", label: "Status", className: "" },
 ];
 
 const arrivalHeaders = [
-  { key: "time", label: "Time" },
-  { key: "flight", label: "Flight" },
-  { key: "airline", label: "Airline" },
-  { key: "origin", label: "Origin" },
-  { key: "gate", label: "Gate" },
-  { key: "terminal", label: "Terminal" },
-  { key: "baggage", label: "Baggage" },
-  { key: "status", label: "Status" },
+  { key: "time", label: "Time", className: "" },
+  { key: "flight", label: "Flight", className: "" },
+  { key: "airline", label: "Airline", className: "hidden sm:table-cell" },
+  { key: "origin", label: "Origin", className: "" },
+  { key: "gate", label: "Gate", className: "hidden md:table-cell" },
+  { key: "terminal", label: "Terminal", className: "hidden md:table-cell" },
+  { key: "baggage", label: "Baggage", className: "hidden lg:table-cell" },
+  { key: "status", label: "Status", className: "" },
 ];
 
 export function FlightBoard({
@@ -154,7 +154,7 @@ export function FlightBoard({
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="flex gap-3 mb-4 pb-4 border-b border-border-subtle">
+            <div className="flex flex-col sm:flex-row gap-3 mb-4 pb-4 border-b border-border-subtle">
               <select
                 value={airlineFilter}
                 onChange={(e) => setAirlineFilter(e.target.value)}
@@ -194,7 +194,7 @@ export function FlightBoard({
               {headers.map((h) => (
                 <th
                   key={h.key}
-                  className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-tertiary"
+                  className={cn("px-3 sm:px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-text-tertiary", h.className)}
                 >
                   {h.label}
                 </th>

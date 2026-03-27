@@ -21,7 +21,7 @@ export default function NotFound() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-xl text-center"
       >
-        <p className="font-heading text-[10rem] font-black leading-none text-accent-blue/20 select-none sm:text-[12rem]">
+        <p className="font-heading text-[6rem] font-black leading-none text-accent-blue/20 select-none sm:text-[10rem] lg:text-[12rem]">
           404
         </p>
 

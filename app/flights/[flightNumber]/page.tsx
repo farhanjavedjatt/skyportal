@@ -161,7 +161,7 @@ export default async function FlightDetailPage(props: {
           </div>
 
           {/* ── Route Visualization ── */}
-          <div className="rounded-2xl bg-bg-secondary border border-border-subtle p-6 mb-6">
+          <div className="rounded-2xl bg-bg-secondary border border-border-subtle p-4 sm:p-6 mb-6">
             <FlightRouteViz
               departureCode={flight.dep_iata}
               departureName={depAirport?.city ?? depName}
@@ -203,7 +203,7 @@ export default async function FlightDetailPage(props: {
 
           {/* ── Timeline & Details ── */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-2xl bg-bg-secondary border border-border-subtle p-5">
+            <div className="rounded-2xl bg-bg-secondary border border-border-subtle p-4 sm:p-5">
               <div className="flex items-center gap-2 mb-4">
                 <Clock className="h-4 w-4 text-text-tertiary" />
                 <h3 className="text-xs font-medium uppercase tracking-wider text-text-tertiary">
@@ -227,7 +227,7 @@ export default async function FlightDetailPage(props: {
               />
             </div>
 
-            <div className="rounded-2xl bg-bg-secondary border border-border-subtle p-5">
+            <div className="rounded-2xl bg-bg-secondary border border-border-subtle p-4 sm:p-5">
               <div className="flex items-center gap-2 mb-4">
                 <Info className="h-4 w-4 text-text-tertiary" />
                 <h3 className="text-xs font-medium uppercase tracking-wider text-text-tertiary">
@@ -313,7 +313,7 @@ function AirportInfoCard({
   const isDep = type === "departure";
 
   return (
-    <div className="rounded-2xl bg-bg-secondary border border-border-subtle p-5">
+    <div className="rounded-2xl bg-bg-secondary border border-border-subtle p-4 sm:p-5">
       <div className="flex items-center gap-2 mb-4">
         <div
           className={`h-2 w-2 rounded-full ${isDep ? "bg-accent-blue" : "bg-accent-green"}`}

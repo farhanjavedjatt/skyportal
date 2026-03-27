@@ -31,11 +31,13 @@ export function FlightRow({ flight, type, timezone }: FlightRowProps) {
         isCancelled && "opacity-50"
       )}
     >
-      <td className={cn("px-4 py-3 font-mono text-sm tabular-nums", isCancelled && "line-through")}>
+      {/* Time — always visible */}
+      <td className={cn("px-3 sm:px-4 py-3 font-mono text-sm tabular-nums", isCancelled && "line-through")}>
         {formatTime(time, timezone)}
       </td>
 
-      <td className="px-4 py-3">
+      {/* Flight number — always visible */}
+      <td className="px-3 sm:px-4 py-3">
         <Link
           href={`/flights/${flight.flight_iata}`}
           className={cn(
@@ -47,11 +49,13 @@ export function FlightRow({ flight, type, timezone }: FlightRowProps) {
         </Link>
       </td>
 
-      <td className={cn("px-4 py-3 text-sm text-text-primary", isCancelled && "line-through")}>
+      {/* Airline — hidden on mobile */}
+      <td className={cn("px-4 py-3 text-sm text-text-primary hidden sm:table-cell", isCancelled && "line-through")}>
         {flight.airline_name ?? flight.airline_iata}
       </td>
 
-      <td className="px-4 py-3">
+      {/* Destination/Origin — always visible */}
+      <td className="px-3 sm:px-4 py-3">
         <Link
           href={`/airports/${(type === "departures" ? flight.arr_iata : flight.dep_iata).toLowerCase()}`}
           className={cn(
@@ -65,21 +69,25 @@ export function FlightRow({ flight, type, timezone }: FlightRowProps) {
         </Link>
       </td>
 
-      <td className={cn("px-4 py-3 font-mono text-sm text-text-secondary", isCancelled && "line-through")}>
+      {/* Gate — hidden on mobile */}
+      <td className={cn("px-4 py-3 font-mono text-sm text-text-secondary hidden md:table-cell", isCancelled && "line-through")}>
         {(type === "departures" ? flight.dep_gate : flight.arr_gate) ?? "—"}
       </td>
 
-      <td className={cn("px-4 py-3 font-mono text-sm text-text-secondary", isCancelled && "line-through")}>
+      {/* Terminal — hidden on mobile */}
+      <td className={cn("px-4 py-3 font-mono text-sm text-text-secondary hidden md:table-cell", isCancelled && "line-through")}>
         {(type === "departures" ? flight.dep_terminal : flight.arr_terminal) ?? "—"}
       </td>
 
+      {/* Baggage (arrivals only) — hidden on mobile */}
       {type === "arrivals" && (
-        <td className={cn("px-4 py-3 font-mono text-sm text-text-secondary", isCancelled && "line-through")}>
+        <td className={cn("px-4 py-3 font-mono text-sm text-text-secondary hidden lg:table-cell", isCancelled && "line-through")}>
           {flight.arr_baggage ?? "—"}
         </td>
       )}
 
-      <td className="px-4 py-3">
+      {/* Status — always visible */}
+      <td className="px-3 sm:px-4 py-3">
         <StatusBadge
           status={flight.status as FlightStatus}
           delay={delay ?? undefined}
